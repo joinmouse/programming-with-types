@@ -1,11 +1,15 @@
-import { Iterator, IteratorRes } from './interface'
+import { Iterable, Iterator, IteratorRes } from './interface'
 
-class LinkedListNode<T> {
+class LinkedListNode<T> implements Iterable<T> {
     value: T
     next: LinkedListNode<T> | undefined
 
     constructor(value: T) {
         this.value = value
+    }
+
+    [Symbol.iterator](): Iterator<T>{
+        return new LinkedListIterator<T>(this)
     }
 }
 

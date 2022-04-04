@@ -1,14 +1,4 @@
-import { Iterator, IteratorRes } from './interface'
-
-class BinaryTreeNode<T> {
-    value: T
-    left: BinaryTreeNode<T> | undefined
-    right: BinaryTreeNode<T> | undefined
-
-    constructor(value: T) {
-        this.value = value
-    }
-}
+import { Iterator, IteratorRes, BinaryTreeNode } from './interface'
 
 // 二叉树迭代
 class BinaryTreeIterator<T> implements Iterator<T> {

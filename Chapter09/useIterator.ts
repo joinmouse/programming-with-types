@@ -1,22 +1,16 @@
-import { Iterator, IteratorRes } from './interface'
+import { Iterable } from './interface'
 
 // print函数
-function print<T>(iterator: Iterator<T>): void {
-    let result: IteratorRes<T> = iterator.next()
-
-    while(!result.done) {
-        console.log(result.value)
-        result = iterator.next()
+function print<T>(iterator: Iterable<T>): void {
+    for(const item of iterator) {
+        console.log(item)
     }
 }
 
 // contains函数
-function contains<T>(iterator: Iterator<T>, value: T): boolean {
-    let result: IteratorRes<T> = iterator.next()
-
-    while(!result.done) {
-        if(result.value === value) return true
-        result = iterator.next()
+function contains<T>(iterator: Iterable<T>, value: T): boolean {
+    for(const item of iterator) {
+        if(item === value) return true
     }
     
     return false
